@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.prose * {
+  /* border: 1px solid black; */
+  line-height: normal;
+}
+
+.ck-editor__editable {
+  padding: 0 25px 0 25px !important
+}
+
+  /* Hide increment/decrement buttons in Chrome, Safari, Edge, and Opera */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Hide increment/decrement buttons in Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
