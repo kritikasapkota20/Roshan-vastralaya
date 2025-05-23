@@ -6,7 +6,7 @@ import Contact from "../pages/Contact";
 import Banner from "../components/Banner";
 import { useLocation } from "react-router-dom";
 import FloatingIcons from "../components/floatingIcons";
-import BlogSection from "../components/BlogSection";
+import BlogSection from "./BlogSection";
 
 const Home = () => {
   const pathname = useLocation();

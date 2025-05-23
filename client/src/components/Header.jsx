@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+ 
 // import logoImg from "/logo2.png";
 
 const Header = () => {
@@ -90,7 +91,7 @@ const Header = () => {
           <NavItem to="/about" label="About" />
           <NavItem to="/product" label="Collections" />
           <NavItem to="/gallery" label="Gallery" />
-          {/* <NavItem to="/events" label="Events" /> */}
+          <NavItem to="/blog" label="Blog" />
           <NavItem to="/contact" label="Contact" />
         </div>
       </div>

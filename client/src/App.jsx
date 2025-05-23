@@ -17,6 +17,7 @@ import EventDetails from "./pages/eventDetails";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import BlogDetail from "./pages/BlogDetail";
+import BlogSection from "./pages/BlogSection";
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
         <Route path="/check" element={<CheckProduct />} />
         <Route path="/events" element={<Events />} />
         <Route path="/events/:eventId" element={<EventDetails />} />
+        <Route path="/blog" element={<BlogSection />} />
+
         <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
