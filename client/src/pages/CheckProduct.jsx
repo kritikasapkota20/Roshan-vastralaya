@@ -19,7 +19,7 @@ const Product = () => {
 
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const productsPerPage = 4;
+  const productsPerPage = 16;
 
   useEffect(() => {
     // Fetch categories and products
@@ -134,7 +134,7 @@ const Product = () => {
             <div className="flex flex-wrap justify-center gap-2 mb-8">
               <button
                 onClick={() => handleCategoryClick(null)}
-                className={`px-6 py-2 text-sm font-medium transition-all duration-300 ${selectedCategory === "All"
+                className={`px-6 py-2 text-sm font-medium rounded-3xl transition-all duration-300 ${selectedCategory === "All"
                   ? "bg-primary text-white shadow-md"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
@@ -145,7 +145,7 @@ const Product = () => {
                 <button
                   key={category._id}
                   onClick={() => handleCategoryClick(category)}
-                  className={`px-6 py-2 text-sm font-medium transition-all duration-300 ${selectedCategory === category.title
+                  className={`px-6 py-2 text-sm font-medium transition-all rounded-3xl duration-300 ${selectedCategory === category.title
                     ? "bg-primary text-white shadow-md"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                     }`}
@@ -179,7 +179,7 @@ const Product = () => {
   >
     {/* <Link to={`/product/${product._id}`} className="block group relative flex-1 flex flex-col"> */}
       {/* Image Section */}
-      <div className="relative aspect-square overflow-hidden bg-[#EBECEF] flex-shrink-0 h-[250px]">
+      <div className="relative aspect-square overflow-hidden bg-[#EBECEF] flex-shrink-0 h-[200px] w-full">
         <img
           src={`${import.meta.env.VITE_SERVER}/${product.image.replace(/\\/g, "/")}`}
           alt={product.name}
@@ -192,7 +192,7 @@ const Product = () => {
       {/* Product Details */}
       <div className="p-4 flex flex-col flex-1">
         {/* Text Content with Fixed Height */}
-        <div className="mb-3 h-20"> {/* Adjust height as needed */}
+        <div className="mb- h-20"> {/* Adjust height as needed */}
     <Link to={`/product/${product._id}`} className="block group relative flex-1 flex flex-col">
           
           <h3 className="text-base font-semibold text-gray-900 line-clamp-2 mb-1 hover:text-primary">

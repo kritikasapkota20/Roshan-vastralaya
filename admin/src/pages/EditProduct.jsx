@@ -35,7 +35,7 @@ const EditProduct = () => {
             name: product.name,
             description: product.desc,
             price: product.price,
-            category: product.category ,
+            category: product.category?._id || product.category,
             brand: product.brand,
           });
           setImagePreview(`${import.meta.env.VITE_SERVERAPI}/${product.image.replace(/\\/g, "/")}`);
@@ -66,12 +66,6 @@ const EditProduct = () => {
     setSubmitting(true);
 
     try {
-      // Validate required fields
-      // if (!formData.name?.trim() || !formData.description?.trim() || !formData.category || !formData.brand?.trim()) {
-      //   toast.error("All fields are required");
-      //   return;
-      // }
-
       // Validate price
       const priceNum = Number(formData.price);
       if (isNaN(priceNum) || priceNum <= 0) {
@@ -81,7 +75,7 @@ const EditProduct = () => {
 
       const formDataToSend = new FormData();
       formDataToSend.append("name", formData.name.trim());
-      formDataToSend.append("desc", formData.description.trim());
+      formDataToSend.append("description", formData.description.trim());
       formDataToSend.append("price", priceNum);
       formDataToSend.append("category", formData.category);
       formDataToSend.append("brand", formData.brand.trim());
@@ -92,7 +86,7 @@ const EditProduct = () => {
       }
 
       // Log the data being sent
-      console.log("Sending edit request with data:", {
+      console.log("Form Data being sent:", {
         name: formData.name.trim(),
         price: priceNum,
         category: formData.category,
@@ -100,6 +94,12 @@ const EditProduct = () => {
         brand: formData.brand.trim(),
         hasImage: !!formData.image
       });
+
+      // Log the actual FormData contents
+      console.log("FormData contents:");
+      for (let pair of formDataToSend.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+      }
 
       const response = await axiosInstance.put(
         `${import.meta.env.VITE_SERVERAPI}/api/v1/products/${id}`,
@@ -111,14 +111,18 @@ const EditProduct = () => {
         }
       );
       
+      console.log("Server Response:", response.data);
+      
       if (response.data.success) {
         toast.success(response.data.message);
-        navigate(`/product/${id}`);
+        // Instead of navigating, let's refresh the current page
+        window.location.reload();
       } else {
         toast.error(response.data.message || "Failed to update product");
       }
     } catch (error) {
       console.error("Error updating product:", error);
+      console.error("Error response:", error.response?.data);
       if (error.response?.status === 403) {
         toast.error("Session expired. Please login again");
         localStorage.removeItem("token");

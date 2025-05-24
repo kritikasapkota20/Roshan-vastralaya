@@ -5,6 +5,7 @@ content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     extend: {
       colors: {
         "primary": "#00719B",
+        "primaryHover":"#1e6680",
         "sec-gray": "#F8F9FA",
         "sec-dark-gray": "#343A40",
         "accent": "#E74C3C",

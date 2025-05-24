@@ -1,49 +1,51 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import SafeHtml from "../components/safeHtml";
 import { DeleteConfirmation } from "../components/deleteConfirmation";
 
 export default function ProductDetails() {
   const { id } = useParams();
-  console.log(id);
-
+  const location = useLocation();
   const navigate = useNavigate();
 
   const [delCon, setDelCon] = useState(false);
-
   const [deleting, setDeleting] = useState(false);
-
-  const [loading, setLoading] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState();
-
+  const [loading, setLoading] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function getSelectedProduct() {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_SERVERAPI}/api/v1/products/${id}`
-        );
-        if (response.data.success) {
-          setSelectedProduct(response.data.product);
-        } else {
-          setSelectedProduct("not found");
-        }
-      } catch (err) {
-        console.error(err);
-        setSelectedProduct("error");
-        setError(err);
-        // alert(err);
-      } finally {
-        setLoading(false);
+  const fetchProduct = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `${import.meta.env.VITE_SERVERAPI}/api/v1/products/${id}`
+      );
+      if (response.data.success) {
+        setSelectedProduct(response.data.product);
+      } else {
+        setSelectedProduct("not found");
       }
+    } catch (err) {
+      console.error(err);
+      setSelectedProduct("error");
+      setError(err);
+    } finally {
+      setLoading(false);
     }
-    getSelectedProduct();
-  }, [id]);
+  };
 
-  console.log(selectedProduct);
+  useEffect(() => {
+    fetchProduct();
+  }, [id, location.state?.refresh]);
+
+  // Clear the refresh state after using it
+  useEffect(() => {
+    if (location.state?.refresh) {
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location.state?.refresh, navigate, location.pathname]);
 
   async function handleDelete() {
     try {
@@ -108,6 +110,14 @@ export default function ProductDetails() {
     return (
       <div className="min-h-screen w-full text-rose-600 flex justify-center items-center text-3xl font-semibold bg-gray-50">
         Error Getting Product
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen w-full flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );
   }

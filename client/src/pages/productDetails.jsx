@@ -11,8 +11,6 @@ export default function ProductDetails() {
   const [loading, setLoading] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState();
   const [deleting, setDeleting] = useState(false);
-
-  // Zoom state
   const [zoom, setZoom] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
 
@@ -36,18 +34,10 @@ export default function ProductDetails() {
       }
     }
 
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
-
+    window.scrollTo({ top: 0, behavior: "smooth" });
     getSelectedProduct();
-    scrollToTop();
   }, [id]);
 
-  // Mouse move for zoom
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -55,7 +45,6 @@ export default function ProductDetails() {
     setZoomPos({ x, y });
   };
 
-  // Touch move for zoom (mobile)
   const handleTouchMove = (e) => {
     if (!e.touches.length) return;
     const rect = e.currentTarget.getBoundingClientRect();
@@ -85,11 +74,11 @@ export default function ProductDetails() {
                 </div>
               </div>
             ) : (
-              <div className="flex flex-col lg:flex-row bg-white/80 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 backdrop-blur-lg">
-                {/* Product Image with Zoom */}
-                <div className="lg:w-1/2 w-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-white p-6 md:p-12">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white/80 rounded-3xl shadow-2xl overflow-hidden backdrop-blur-lg p-6 md:p-12">
+                {/* Image Section */}
+                <div className="lg:sticky lg:top-24 h-fit">
                   <div
-                    className="relative w-full h-80 md:h-[480px] rounded-2xl overflow-hidden shadow-xl bg-gray-50/50 group cursor-zoom-in"
+                    className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-xl bg-gray-50/50 group cursor-zoom-in"
                     onMouseEnter={() => setZoom(true)}
                     onMouseLeave={() => setZoom(false)}
                     onMouseMove={handleMouseMove}
@@ -99,18 +88,13 @@ export default function ProductDetails() {
                   >
                     <img
                       alt={selectedProduct.name}
-                      className={`w-full h-full object-cover object-center transition-transform duration-700 ${zoom ? "scale-150" : "scale-100"}`}
+                      className={`w-full h-full object-cover transition-transform duration-700 ${
+                        zoom ? "scale-150" : "scale-100"
+                      }`}
                       src={`${import.meta.env.VITE_SERVER}/${selectedProduct.image.replace(/\\/g, "/")}`}
-                      style={
-                        zoom
-                          ? {
-                              transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
-                              transition: "transform 0.3s cubic-bezier(.4,0,.2,1)",
-                            }
-                          : {}
-                      }
+                      style={zoom ? { transformOrigin: `${zoomPos.x}% ${zoomPos.y}%` } : {}}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     {zoom && (
                       <div className="absolute top-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded z-20 pointer-events-none select-none">
                         Zoom
@@ -118,49 +102,70 @@ export default function ProductDetails() {
                     )}
                   </div>
                 </div>
-                {/* Product Details */}
-                <div className="lg:w-1/2 w-full flex flex-col justify-cente p-6 md:p-12">
-                  <div className="mb-6">
-                    <h2 className="text-xl font-semibold text-primary tracking-widest uppercase mb-2 flex items-center gap-2">
-                      <FaTag className="inline-block" /> Product Details
-                    </h2>
-                    <h1 className="text-lg font-bold text-gray-900 mb-4 leading-tight font-playfair">
-                      {selectedProduct.name}
-                    </h1>
-                  </div>
-                  <div className="space-y-5">
+
+                {/* Details Section */}
+                <div className="flex flex-col gap-8">
+                  {/* Product Header */}
+                  <div className="space-y-4 border-b border-gray-200 pb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-primary/10 rounded-lg">
+                        <FaTag className="text-primary w-6 h-6" />
+                      </div>
+                      <h1 className="text-3xl font-bold text-gray-900 font-playfair">
+                        {selectedProduct.name}
+                      </h1>
+                    </div>
+
                     <div className="flex items-center gap-4">
-                      <span className="text-gray-600 font-medium text-base">Category:</span>
-                      <span className="text-gray-900 font-semibold text-base">
-                        {selectedProduct.category
-                          ? selectedProduct.category.title
-                          : "Category not specified"}
+                      <span className="text-gray-600 font-medium">Category:</span>
+                      <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold">
+                        {selectedProduct.category?.title || "Uncategorized"}
                       </span>
                     </div>
-                    {/* <div className="flex items-center gap-4">
-                      <span className="text-gray-600 font-medium text-base">Price:</span>
-                      <span className="flex items-center text-primary font-bold text-2xl">
-                        <FaRupeeSign className="mr-1" />
-                        {selectedProduct.price}
-                      </span>
-                    </div> */}
-                    <div className="bg-white/60 backdrop-blur-sm p-6 rounded-xl shadow hover:shadow-lg transition duration-200">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Description</h3>
-                      <div className="prose prose-lg max-w-none text-gray-700">
+                  </div>
+
+                  {/* Enhanced Description */}
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-primary/10 to-purple-100/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative bg-white/60 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                          <svg
+                            className="w-4 h-4 text-primary"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </span>
+                        Product Description
+                      </h3>
+                      <div className="prose prose-lg max-w-none text-gray-700 overflow-y-auto max-h-[500px] scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent">
                         <SafeHtml htmlString={selectedProduct.desc} />
                       </div>
                     </div>
-                    {selectedProduct.catalog && (
+                  </div>
+
+                  {/* Catalog Download */}
+                  {selectedProduct.catalog && (
+                    <div className="mt-4 animate-bounce-horizontal">
                       <a
                         href={`${import.meta.env.VITE_SERVER}/api/v1/products/${id}/catalog`}
                         target="_blank"
-                        className="inline-flex items-center px-6 py-3 bg-primary/90 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 mt-2"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 shadow-lg transform hover:-translate-y-1"
                       >
-                        <FaFileDownload className="w-5 h-5 mr-2" />
-                        Download Catalogue
+                        <FaFileDownload className="w-5 h-5 mr-2 transition-transform" />
+                        Download Full Specification
                       </a>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -168,7 +173,7 @@ export default function ProductDetails() {
         </section>
       ) : (
         <div className="w-full h-[70vh] flex justify-center items-center">
-          <div className="animate-spin rounded-full h-20 w-20 border-t-4 border-b-4 border-primary"></div>
+          <div className="animate-spin rounded-full h-20 w-20 border-t-4 border-b-4 border-primary" />
         </div>
       )}
     </div>
