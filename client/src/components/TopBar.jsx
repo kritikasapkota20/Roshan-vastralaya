@@ -35,7 +35,8 @@ function TopBar() {
 
         {/* Right side - Social Media Links (hidden on mobile) */}
         <div className="hidden md:flex items-center space-x-4 mt-2 md:mt-0">
-          <a
+          <p className="text-sm ">24/7 Customer Service</p>
+          {/* <a
             href="https://www.facebook.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -58,7 +59,7 @@ function TopBar() {
             className="text-neutral hover:text-white"
           >
             <FaWhatsapp size={20} />
-          </a>
+          </a> */}
           {/* <a
             href="https://www.youtube.com"
             target="_blank"

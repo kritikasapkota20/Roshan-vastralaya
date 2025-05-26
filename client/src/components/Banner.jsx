@@ -50,7 +50,7 @@ const Banner = () => {
     <div className="relative">
       {/* Custom Left Arrow */}
       <button
-        className="hidden md:flex items-center justify-center absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white hover:bg-[#cfc6c6] transition-all duration-300 shadow-lg group"
+        className=" items-center justify-center absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white hover:bg-[#cfc6c6] transition-all duration-300 shadow-lg group"
         onClick={() => sliderRef.current?.slickPrev()}
         aria-label="Previous Slide"
         type="button"
@@ -68,7 +68,7 @@ const Banner = () => {
 
       {/* Custom Right Arrow */}
       <button
-        className="hidden md:flex items-center justify-center absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white hover:bg-[#cfc6c6] transition-all duration-300 shadow-lg group"
+        className="flex items-center justify-center absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white hover:bg-[#cfc6c6] transition-all duration-300 shadow-lg group"
         onClick={() => sliderRef.current?.slickNext()}
         aria-label="Next Slide"
         type="button"
@@ -97,9 +97,9 @@ const Banner = () => {
             />
             {/* Content */}
             <div className="relative z-20 h-full flex items-center">
-              <div className="container mx-auto px-4">
+              <div className="container mx-auto px-20 sm:px-16  md:px-12 lg:px-4 ">
                 <div className="max-w-2xl lg:ml-20">
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 mt-0 md:mt-[-50px] md:mb-6 leading-tight drop-shadow-md font-playfair">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 lg:mb-7 mt-0 md:mt-[-50px] lg:mt-[-100px] md:mb-6 leading-tight drop-shadow-md font-playfair">
                     {items.title}
                   </h1>
                   <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 max-w-xl drop-shadow-sm font-poppins">

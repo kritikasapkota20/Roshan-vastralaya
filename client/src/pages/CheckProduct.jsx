@@ -208,13 +208,22 @@ const Product = () => {
         {/* Button Container */}
         <div className="mt-auto">
           <button
-            className="w-full py-2.5 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
+            className="w-full py-2.5 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors flex items-center justify-center gap-2 group"
             onClick={(e) => {
               e.preventDefault();
               window.location.href = `/product/${product._id}`;
             }}
           >
             View Details
+            <svg
+              className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
           </button>
         </div>
       </div>

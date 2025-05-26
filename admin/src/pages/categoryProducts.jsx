@@ -86,7 +86,7 @@ const CategoryProducts = () => {
                 className="px-4 py-2.5 bg-primary text-white rounded-xl flex items-center space-x-2 hover:bg-primaryHover transition duration-200 shadow-md hover:shadow-lg"
               >
                 <FaPlus />
-                <span>Add Product</span>
+                {/* <span>Add Product</span> */}
               </Link>
               <Link
                 to="/categories"
@@ -97,7 +97,6 @@ const CategoryProducts = () => {
               </Link>
             </div>
           </div>
-
           {loading ? (
             <div className="flex justify-center items-center py-20">
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>

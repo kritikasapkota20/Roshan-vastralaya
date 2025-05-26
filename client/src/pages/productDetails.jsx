@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import SafeHtml from "../components/safeHtml";
 import { toast } from "react-toastify";
-import { FaTag, FaRupeeSign, FaFileDownload } from "react-icons/fa";
+import { FaTag, FaRupeeSign, FaFileDownload, FaPhoneAlt, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -74,9 +74,9 @@ export default function ProductDetails() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white/80 rounded-3xl shadow-2xl overflow-hidden backdrop-blur-lg p-6 md:p-12">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white/80 rounded-3xl shadow-2xl overflow-hidden backdrop-blur-lg px-6 pb-6 md:px-8 md:pb-8">
                 {/* Image Section */}
-                <div className="lg:sticky lg:top-24 h-fit">
+                <div className="lg:sticky lg:top-12 h-fit">
                   <div
                     className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-xl bg-gray-50/50 group cursor-zoom-in"
                     onMouseEnter={() => setZoom(true)}
@@ -94,9 +94,9 @@ export default function ProductDetails() {
                       src={`${import.meta.env.VITE_SERVER}/${selectedProduct.image.replace(/\\/g, "/")}`}
                       style={zoom ? { transformOrigin: `${zoomPos.x}% ${zoomPos.y}%` } : {}}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30  opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     {zoom && (
-                      <div className="absolute top-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded z-20 pointer-events-none select-none">
+                      <div className="absolute top-2 right-2 bg-primary text-white text-xs px-2 py-1 rounded z-20 pointer-events-none select-none">
                         Zoom
                       </div>
                     )}
@@ -104,14 +104,14 @@ export default function ProductDetails() {
                 </div>
 
                 {/* Details Section */}
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-8 md:pt-10">
                   {/* Product Header */}
                   <div className="space-y-4 border-b border-gray-200 pb-8">
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-primary/10 rounded-lg">
                         <FaTag className="text-primary w-6 h-6" />
                       </div>
-                      <h1 className="text-3xl font-bold text-gray-900 font-playfair">
+                      <h1 className="text-2xl font-bold text-gray-900 font-playfai">
                         {selectedProduct.name}
                       </h1>
                     </div>
@@ -151,6 +151,45 @@ export default function ProductDetails() {
                       </div>
                     </div>
                   </div>
+
+{/* --- Contact to Buy Section --- */}
+<div className="mt-2">
+  <div className="bg-primary/10 rounded-2xl p-6 flex flex-col md:flex-row items-center md:items-start gap-6 shadow-md border border-primary/10">
+    <div className="flex-1 text-center md:text-left">
+      <h4 className="text-xl font-bold text-primary mb-2 flex items-center justify-center md:justify-start gap-2">
+        <FaWhatsapp className="inline-block text-green-500" /> Interested in this product?
+      </h4>
+      <p className="text-gray-700 mb-4">
+        To buy or inquire, contact us:
+      </p>
+      <div className="flex flex-col items-center md:items-start gap-2 mb-3">
+        <a
+          href="tel:+9771234567890"
+          className="flex items-center gap-2 text-gray-800 text-base font-medium cursor-pointer hover:text-primary transition"
+        >
+          <FaPhoneAlt className="text-primary" />
+          <span>+977 1234567890</span>
+        </a>
+        <a
+          href="mailto:info@roshanvastaralaya.com"
+          className="flex items-center gap-2 text-gray-800 text-base font-medium cursor-pointer hover:text-primary transition"
+        >
+          <FaEnvelope className="text-primary" />
+          <span>info@roshanvastaralaya.com</span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <Link
+        to="/contact"
+        className="inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-primaryHover text-white font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+      >
+        Contact Us
+      </Link>
+    </div>
+  </div>
+</div>
+{/* --- End Contact to Buy Section --- */}
 
                   {/* Catalog Download */}
                   {selectedProduct.catalog && (

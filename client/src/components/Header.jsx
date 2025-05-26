@@ -107,7 +107,7 @@ const Header = () => {
           <MobileNavItem to="/about" label="About" />
           <MobileNavItem to="/product" label="Collections" />
           <MobileNavItem to="/gallery" label="Gallery" />
-          {/* <MobileNavItem to="/events" label="Events" /> */}
+          <MobileNavItem to="/blog" label="blog" />
           <MobileNavItem to="/contact" label="Contact" />
         </div>
       </div>

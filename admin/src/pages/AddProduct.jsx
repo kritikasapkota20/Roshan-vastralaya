@@ -49,7 +49,7 @@ const AddProduct = ({ edit, upload }) => {
                 : null,
             description: response.data.product.desc,
             name: response.data.product.name,
-            price: response.data.product.price,
+            // price: response.data.product.price,
           });
         }
       } catch (err) {
@@ -68,7 +68,7 @@ const AddProduct = ({ edit, upload }) => {
     image: null,
     name: "",
     description: "",
-    price: "",
+    // price: "",
     category: "",
     brand: "",
   });
@@ -128,7 +128,7 @@ const AddProduct = ({ edit, upload }) => {
     formDataToSend.append("productImage", formData.image);
     formDataToSend.append("name", formData.name);
     formDataToSend.append("description", formData.description);
-    formDataToSend.append("price", formData.price);
+    // formDataToSend.append("price", formData.price);
     formDataToSend.append("category", formData.category);
     formDataToSend.append("brand", formData.brand);
     formDataToSend.append("catalogFile", catalog);
@@ -150,7 +150,7 @@ const AddProduct = ({ edit, upload }) => {
           image: null,
           name: "",
           description: "",
-          price: "",
+          // price: "",
           category: "",
           brand: "",
         });
@@ -179,16 +179,16 @@ const AddProduct = ({ edit, upload }) => {
       }
 
       // Validate price
-      const priceNum = Number(formData.price);
-      if (isNaN(priceNum) || priceNum <= 0) {
-        toast.error("Price must be a valid positive number");
-        return;
-      }
+      // const priceNum = Number(formData.price);
+      // if (isNaN(priceNum) || priceNum <= 0) {
+      //   toast.error("Price must be a valid positive number");
+      //   return;
+      // }
 
       const formDataToSend = new FormData();
       formDataToSend.append("name", formData.name.trim());
       formDataToSend.append("description", formData.description.trim());
-      formDataToSend.append("price", priceNum);
+      // formDataToSend.append("price", priceNum);
       formDataToSend.append("category", formData.category);
       formDataToSend.append("brand", formData.brand.trim());
 
@@ -200,7 +200,7 @@ const AddProduct = ({ edit, upload }) => {
       // Log the data being sent
       console.log("Sending edit request with data:", {
         name: formData.name.trim(),
-        price: priceNum,
+        // price: priceNum,
         category: formData.category,
         description: formData.description.trim(),
         brand: formData.brand.trim(),
@@ -350,7 +350,7 @@ const AddProduct = ({ edit, upload }) => {
                     required
                   />
                 </div>
-
+{/* 
                 <div className="space-y-2">
                   <label className="block text-sm font-medium text-gray-700" htmlFor="price">
                     Price*
@@ -367,7 +367,7 @@ const AddProduct = ({ edit, upload }) => {
                       required
                     />
                   </div>
-                </div>
+                </div> */}
 
                 <div className="space-y-2">
                   <label className="block text-sm font-medium text-gray-700" htmlFor="category">

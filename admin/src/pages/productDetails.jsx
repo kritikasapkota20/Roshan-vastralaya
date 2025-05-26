@@ -164,7 +164,7 @@ export default function ProductDetails() {
                   <div className="space-y-6">
                     <div>
                       <h2 className="text-sm font-semibold text-gray-500 tracking-wider uppercase">Product Information</h2>
-                      <h1 className="mt-2 text-4xl font-bold text-gray-900">{selectedProduct.name.toUpperCase()}</h1>
+                      <h1 className="mt-2 text-2xl font-bold text-gray-900">{selectedProduct.name}</h1>
                     </div>
 
                     <div className="bg-gray-50 rounded-xl p-6">
@@ -200,7 +200,6 @@ export default function ProductDetails() {
                         <p className="mt-1 text-lg font-medium text-gray-900">Rs. {selectedProduct.price}</p>
                       </div>
                     </div>
-
                     <div className="space-y-4">
                       {selectedProduct.catalog ? (
                         <>

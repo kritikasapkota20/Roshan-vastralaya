@@ -7,16 +7,16 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f8fafc] to-[#f3e8ff] ">
       {/* Introduction Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16  bg-white">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center px-4 md:px-8">
-          <div className="relative flex items-center justify-center w-full h-64 md:h-[370px] ">
-            <img
-              src={aboutimg}
-              alt="Our Craft"
-                      className=" rounded-xl shadow-xl transform hover:scale-105 transition duration-300 w-full h-full object-cover md:object-[center_top] object-center absolute inset-0 brightness-[.75]"
-
-            />
-          </div>
+            <div className="relative w-full">
+              <img
+                src={aboutimg}
+                alt="Our Craft"
+                className="rounded-xl shadow-xl transform hover:scale-105 transition duration-300 w-full h-auto object-cover md:h-[370px] md:object-[center_top] brightness-[.75]"
+                style={{ position: "static" }}
+              />
+            </div>
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
               Why Choose Us?

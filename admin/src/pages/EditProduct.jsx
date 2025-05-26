@@ -14,7 +14,7 @@ const EditProduct = () => {
     image: null,
     name: "",
     description: "",
-    price: "",
+    // price: "",
     category: "",
     brand: "",
   });
@@ -34,8 +34,8 @@ const EditProduct = () => {
             image: null,
             name: product.name,
             description: product.desc,
-            price: product.price,
-            category: product.category?._id || product.category,
+            // price: product.price,
+            category: product.category ,
             brand: product.brand,
           });
           setImagePreview(`${import.meta.env.VITE_SERVERAPI}/${product.image.replace(/\\/g, "/")}`);
@@ -66,17 +66,23 @@ const EditProduct = () => {
     setSubmitting(true);
 
     try {
-      // Validate price
-      const priceNum = Number(formData.price);
-      if (isNaN(priceNum) || priceNum <= 0) {
-        toast.error("Price must be a valid positive number");
+      // Validate required fields
+      if (!formData.name?.trim() || !formData.description?.trim() || !formData.category || !formData.brand?.trim()) {
+        toast.error("All fields are required");
         return;
       }
+
+      // Validate price
+      // const priceNum = Number(formData.price);
+      // if (isNaN(priceNum) || priceNum <= 0) {
+      //   toast.error("Price must be a valid positive number");
+      //   return;
+      // }
 
       const formDataToSend = new FormData();
       formDataToSend.append("name", formData.name.trim());
       formDataToSend.append("description", formData.description.trim());
-      formDataToSend.append("price", priceNum);
+      // formDataToSend.append("price", priceNum);
       formDataToSend.append("category", formData.category);
       formDataToSend.append("brand", formData.brand.trim());
       
@@ -86,20 +92,14 @@ const EditProduct = () => {
       }
 
       // Log the data being sent
-      console.log("Form Data being sent:", {
+      console.log("Sending edit request with data:", {
         name: formData.name.trim(),
-        price: priceNum,
+        // price: priceNum,
         category: formData.category,
         description: formData.description.trim(),
         brand: formData.brand.trim(),
         hasImage: !!formData.image
       });
-
-      // Log the actual FormData contents
-      console.log("FormData contents:");
-      for (let pair of formDataToSend.entries()) {
-        console.log(pair[0] + ': ' + pair[1]);
-      }
 
       const response = await axiosInstance.put(
         `${import.meta.env.VITE_SERVERAPI}/api/v1/products/${id}`,
@@ -111,18 +111,14 @@ const EditProduct = () => {
         }
       );
       
-      console.log("Server Response:", response.data);
-      
       if (response.data.success) {
         toast.success(response.data.message);
-        // Instead of navigating, let's refresh the current page
-        window.location.reload();
+        navigate(`/product/${id}`);
       } else {
         toast.error(response.data.message || "Failed to update product");
       }
     } catch (error) {
       console.error("Error updating product:", error);
-      console.error("Error response:", error.response?.data);
       if (error.response?.status === 403) {
         toast.error("Session expired. Please login again");
         localStorage.removeItem("token");
@@ -193,7 +189,7 @@ const EditProduct = () => {
             />
           </div>
 
-          <div className="mb-2">
+          {/* <div className="mb-2">
             <label
               className="block text-gray-700 text-sm font-semibold mb-1"
               htmlFor="price"
@@ -209,7 +205,7 @@ const EditProduct = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
-          </div>
+          </div> */}
 
           <div className="flex justify-between mb-2">
             <div className="w-full pr-2">
@@ -269,7 +265,7 @@ const EditProduct = () => {
             type="submit"
             disabled={submitting}
             className={`w-full bg-primary text-white py-2 px-4 rounded-lg transition duration-300 ${
-              submitting ? "opacity-50 cursor-not-allowed" : "hover:bg-dark-orange"
+              submitting ? "opacity-50 cursor-not-allowed" : "hover:bg-primaryHover"
             }`}
           >
             {submitting ? "Updating..." : "Update Product"}

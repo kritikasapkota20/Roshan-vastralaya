@@ -117,58 +117,64 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <main className="py-6 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+      <main className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {/* Welcome Section */}
+        <div className="mb-8 text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">Welcome to Dashboard</h1>
+          <p className="text-lg text-gray-600">Manage your products and categories efficiently</p>
+        </div>
+
         {/* Stats Section */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-8">
-          <div className="bg-white overflow-hidden shadow rounded-lg">
-            <div className="p-5">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
+          <div className="bg-gradient-to-br from-blue-500 to-blue-600 overflow-hidden shadow-xl rounded-2xl transform hover:scale-105 transition-all duration-300">
+            <div className="p-6">
               <div className="flex items-center">
-                <div className="flex-shrink-0 bg-blue-500 rounded-md p-3">
-                  <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="flex-shrink-0 bg-white bg-opacity-20 rounded-xl p-4">
+                  <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                   </svg>
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
-                    <dt className="text-sm font-medium text-gray-500 truncate">Total Products</dt>
-                    <dd className="text-3xl font-semibold text-gray-900">{stats.totalProducts}</dd>
+                    <dt className="text-sm font-medium text-white text-opacity-90 truncate">Total Products</dt>
+                    <dd className="text-4xl font-bold text-white mt-1">{stats.totalProducts}</dd>
                   </dl>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white overflow-hidden shadow rounded-lg">
-            <div className="p-5">
+          <div className="bg-gradient-to-br from-green-500 to-green-600 overflow-hidden shadow-xl rounded-2xl transform hover:scale-105 transition-all duration-300">
+            <div className="p-6">
               <div className="flex items-center">
-                <div className="flex-shrink-0 bg-green-500 rounded-md p-3">
-                  <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="flex-shrink-0 bg-white bg-opacity-20 rounded-xl p-4">
+                  <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                   </svg>
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
-                    <dt className="text-sm font-medium text-gray-500 truncate">Categories</dt>
-                    <dd className="text-3xl font-semibold text-gray-900">{stats.totalCategories}</dd>
+                    <dt className="text-sm font-medium text-white text-opacity-90 truncate">Categories</dt>
+                    <dd className="text-4xl font-bold text-white mt-1">{stats.totalCategories}</dd>
                   </dl>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white overflow-hidden shadow rounded-lg">
-            <div className="p-5">
+          <div className="bg-gradient-to-br from-purple-500 to-purple-600 overflow-hidden shadow-xl rounded-2xl transform hover:scale-105 transition-all duration-300">
+            <div className="p-6">
               <div className="flex items-center">
-                <div className="flex-shrink-0 bg-purple-500 rounded-md p-3">
-                  <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="flex-shrink-0 bg-white bg-opacity-20 rounded-xl p-4">
+                  <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
-                    <dt className="text-sm font-medium text-gray-500 truncate">Total Value</dt>
-                    <dd className="text-3xl font-semibold text-gray-900">₹{stats.totalValue.toLocaleString()}</dd>
+                    <dt className="text-sm font-medium text-white text-opacity-90 truncate">Total Value</dt>
+                    <dd className="text-4xl font-bold text-white mt-1">₹{stats.totalValue.toLocaleString()}</dd>
                   </dl>
                 </div>
               </div>
@@ -176,27 +182,32 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Products Table */}
-        <div className="bg-white shadow rounded-lg overflow-hidden">
-          <div className="px-4 py-5 sm:px-6 flex justify-between items-center">
-            <h2 className="text-xl font-semibold text-gray-900">Product List</h2>
-            <Link
-              to="/addproducts"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              Add New Product
-            </Link>
+        {/* Products Section */}
+        <div className="bg-white shadow-xl rounded-2xl overflow-hidden">
+          <div className="px-6 py-5 border-b border-gray-200">
+            <div className="flex justify-between items-center">
+              <h2 className="text-2xl font-bold text-gray-900">Product List</h2>
+              <Link
+                to="/addproducts"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Add New Product
+              </Link>
+            </div>
           </div>
 
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Image</th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Image</th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Brand</th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -207,7 +218,7 @@ const Home = () => {
                         <img
                           src={`${import.meta.env.VITE_SERVERAPI}/${product.image.replace(/\\/g, "/")}`}
                           alt={product.name}
-                          className="h-24 w-24 object-contain rounded-lg"
+                          className="h-24 w-24 object-contain rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
                         />
                       </div>
                     </td>
@@ -215,17 +226,17 @@ const Home = () => {
                       <div className="text-sm font-medium text-gray-900">{product.name}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-500">
+                      <span className="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
                         {product.category?.title || "Uncategorized"}
-                      </div>
+                      </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">₹{product.price}</div>
+                      <div className="text-sm text-gray-900">₹{product.brand}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-3">
                       <Link
                         to={`/product/${product._id}`}
-                        className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
                       >
                         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -239,7 +250,7 @@ const Home = () => {
                           setProductName(product.name);
                           setProductId(product._id);
                         }}
-                        className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200"
                         disabled={deleting}
                       >
                         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -254,39 +265,35 @@ const Home = () => {
             </table>
           </div>
 
-          {delCon && (
-            <DeleteConfirmation
-              type={"product"}
-              name={productName}
-              delFunc={() => {
-                handleDelete(productId);
-              }}
-              setDelCon={setDelCon}
-            />
-          )}
-
           {/* Pagination */}
-          <div className="px-4 py-3 border-t border-gray-200 sm:px-6">
+          <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
             <ReactPaginate
-              previousLabel={<span className="block">Previous</span>}
-              nextLabel={<span className="block">Next</span>}
-              breakLabel={<span className="block">...</span>}
+              previousLabel={"← Previous"}
+              nextLabel={"Next →"}
               pageCount={pageCount}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
               onPageChange={handlePageClick}
-              containerClassName="flex justify-center space-x-2"
-              pageClassName="px-3 py-1 rounded-md bg-white border border-gray-300 hover:bg-gray-50 transition"
-              pageLinkClassName="block w-full h-full text-center"
-              previousClassName="px-4 py-2 rounded-md bg-white border border-gray-300 hover:bg-gray-50 transition"
-              nextClassName="px-4 py-2 rounded-md bg-white border border-gray-300 hover:bg-gray-50 transition"
-              activeClassName="bg-blue-500 text-white border-blue-500"
-              disabledClassName="opacity-50 cursor-not-allowed"
+              containerClassName={"flex justify-center space-x-2"}
+              pageClassName={"px-3 py-1 rounded-lg border border-gray-300 hover:bg-gray-100 transition-all duration-200"}
+              pageLinkClassName={"text-gray-700"}
+              previousClassName={"px-3 py-1 rounded-lg border border-gray-300 hover:bg-gray-100 transition-all duration-200"}
+              nextClassName={"px-3 py-1 rounded-lg border border-gray-300 hover:bg-gray-100 transition-all duration-200"}
+              activeClassName={"bg-blue-600 text-white border-blue-600"}
+              activeLinkClassName={"text-white"}
+              disabledClassName={"opacity-50 cursor-not-allowed"}
             />
           </div>
         </div>
       </main>
       <Footer />
+      {delCon && (
+        <DeleteConfirmation
+          type="product"
+          name={productName}
+          delFunc={() => handleDelete(productId)}
+          setDelCon={setDelCon}
+          deleting={deleting}
+        />
+      )}
     </div>
   );
 };
