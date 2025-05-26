@@ -10,11 +10,11 @@ const nodemailer = require("nodemailer");
 const addProduct = async (req, res) => {
   console.log(req.body);
 
-  const { name, price, category, description, brand } = req.body;
+  const { name,  category, description, brand } = req.body;
 
   if (
     !name?.trim() ||
-    !price?.trim() ||
+    // !price?.trim() ||
     !category?.trim() ||
     !description?.trim() ||
     !brand?.trim()
@@ -43,7 +43,7 @@ const addProduct = async (req, res) => {
     // Create new product
     const product = await Product.create({
       name,
-      price,
+      // price,
       category,
       desc: description,
       brand,
@@ -174,57 +174,113 @@ const deleteProduct = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
+
 const editProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, price, category, description, brand } = req.body;
+    const { name, category, description, brand } = req.body;
 
-    console.log("Edit Product Request:", { id, name, price, category, description, brand });
+    console.log("=== Edit Product Request Details ===");
+    console.log("Product ID:", id);
+    console.log("Request Body:", req.body);
     console.log("Files:", req.files);
 
-    // Validate price if it's provided
-    if (price !== undefined) {
-      const priceNum = Number(price);
-      if (isNaN(priceNum) || priceNum <= 0) {
-        return res.status(400).json({
-          success: false,
-          message: "Price must be a valid positive number",
-        });
-      }
+    // Validate required fields
+    if (!name?.trim() || !description?.trim() || !category || !brand?.trim()) {
+      console.log("Validation failed:", { name, description, category, brand });
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required",
+      });
     }
 
     // Find the product by ID
     let product = await Product.findById(id);
     if (!product) {
+      console.log("Product not found with ID:", id);
       return res.status(404).json({ message: "Product not found" });
     }
 
+    console.log("=== Current Product State ===");
+    console.log("Before Update:", {
+      name: product.name,
+      desc: product.desc,
+      category: product.category,
+      brand: product.brand
+    });
+
     // Handle image update if new image is provided
+    let imagePath = product.image;
     if (req.files && req.files.productImage) {
       if (product.image && fs.existsSync(product.image)) {
-        fs.unlinkSync(product.image); // Delete old image
+        fs.unlinkSync(product.image);
       }
-      product.image = req.files.productImage[0].path;
+      imagePath = req.files.productImage[0].path;
     }
 
-    // Update only the provided fields
-    if (name?.trim()) product.name = name.trim();
-    if (price !== undefined) product.price = Number(price);
-    if (category) product.category = category;
-    if (description?.trim()) product.desc = description.trim();
-    if (brand?.trim()) product.brand = brand.trim();
+    // Prepare update data
+    const updateData = {
+      name: name.trim(),
+      category: category,
+      desc: description.trim(),
+      brand: brand.trim(),
+      image: imagePath
+    };
 
-    // Save the updated product
-    await product.save();
+    console.log("=== Update Data ===");
+    console.log(updateData);
+
+    // Use findByIdAndUpdate with options
+    const updatedProduct = await Product.findByIdAndUpdate(
+      id,
+      { $set: updateData },
+      { 
+        new: true, 
+        runValidators: true,
+        context: 'query'
+      }
+    ).populate('category');
+
+    if (!updatedProduct) {
+      console.log("Failed to update product");
+      return res.status(500).json({
+        success: false,
+        message: "Failed to update product"
+      });
+    }
+
+    console.log("=== Final Product State ===");
+    console.log("After Update:", {
+      name: updatedProduct.name,
+      desc: updatedProduct.desc,
+      category: updatedProduct.category,
+      brand: updatedProduct.brand,
+      image: updatedProduct.image
+    });
+
+    // Verify the update
+    const verifiedProduct = await Product.findById(id).populate('category');
+    console.log("=== Verification ===");
+    console.log("Verified Product:", {
+      name: verifiedProduct.name,
+      desc: verifiedProduct.desc,
+      category: verifiedProduct.category,
+      brand: verifiedProduct.brand,
+      image: verifiedProduct.image
+    });
 
     return res.status(200).json({
       success: true,
       message: "Product updated successfully",
-      product,
+      product: verifiedProduct
     });
   } catch (err) {
-    console.log("Edit Product Error:", err);
-    return res.status(500).json({ message: err.message });
+    console.log("=== Edit Product Error ===");
+    console.log("Error:", err);
+    return res.status(500).json({ 
+      success: false,
+      message: err.message 
+    });
   }
 };
 

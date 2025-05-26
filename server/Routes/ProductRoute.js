@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const productcontroller = require("../Controllers/ProductController");
 const upload = require("../multerconfig/Storageconfig");
+const optionalUpload = require("../middleware/optionalUpload");
 const auth = require("../middleware/auth");
 
 router.route("/").post(
@@ -29,7 +30,10 @@ router
   .route("/:id/catalog")
   .delete(auth.isAuthenticated, productcontroller.catalogDelete);
 
-router.route("/:id").put(auth.isAuthenticated, productcontroller.editProduct);
+router.route("/:id").put(
+  optionalUpload,
+  productcontroller.editProduct
+);
 router
   .route("/:id")
   .delete(auth.isAuthenticated, productcontroller.deleteProduct);
