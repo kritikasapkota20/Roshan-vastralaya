@@ -5,12 +5,12 @@ const PrivacyPolicy = () => {
                 <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center leading-tight">Privacy Policy</h1>
                 <div className="bg-white rounded-lg shadow-lg p-8">
                     <div className="prose prose-lg max-w-none">
-                        <p className="text-gray-700 mb-8 leading-relaxed">
-                            Welcome to RV Fashion Store. This Privacy Policy explains how we handle your information
+                        <p className="text-gray-700 mb-8  " style={{ lineHeight: '1.5' }}>
+                            Welcome to Roshan Vastralaya. This Privacy Policy explains how we handle your information
                             when you visit our website to browse our product listings.
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-4 leading-tight">1. Information We Collect</h2>
+                        <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-4 " >1. Information We Collect</h2>
                         <p className="text-gray-700 mb-4 leading-relaxed">We collect:</p>
                         <ul className="list-disc list-inside text-gray-700 mb-6 ml-4 leading-relaxed">
                             <li>Name, email, and phone (when you contact us)</li>
@@ -35,7 +35,7 @@ const PrivacyPolicy = () => {
                         </ul>
 
                         <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-4 leading-tight">3. Information Sharing</h2>
-                        <p className="text-gray-700 mb-6 leading-relaxed">
+                        <p className="text-gray-700 mb-6 leading-relaxed"style={{ lineHeight: '1.5' }}>
                             We do not sell your information. We may share it with service providers who help us operate our website
                             or when required by law.
                         </p>
@@ -57,11 +57,11 @@ const PrivacyPolicy = () => {
                             <ul className="space-y-3 leading-relaxed">
                                 <li className="flex items-center">
                                     <span className="text-gray-500 mr-2">📧</span>
-                                    <a href="mailto:info@rvfashion.com" className="text-blue-600 hover:text-blue-800">info@rvfashion.com</a>
+                                    <a href="mailto:info@rvfashion.com" className="text-blue-600 hover:text-blue-800">info@roshanvastralaya.com</a>
                                 </li>
                                 <li className="flex items-center">
                                     <span className="text-gray-500 mr-2">📍</span>
-                                    <span>123 Fashion Street, City, Country</span>
+                                    <span>Pidari Chowk,Janakpur </span>
                                 </li>
                                 <li className="flex items-center">
                                     <span className="text-gray-500 mr-2">📞</span>

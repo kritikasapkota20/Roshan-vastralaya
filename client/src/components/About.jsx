@@ -13,16 +13,20 @@ const About = () => {
               <img
                 src={aboutimg}
                 alt="Our Craft"
-                className="rounded-xl shadow-xl transform hover:scale-105 transition duration-300 w-full h-auto object-cover md:h-[370px] md:object-[center_top] brightness-[.75]"
+                className="rounded-xl shadow-xl transform hover:scale-105 transition duration-300 w-full h-auto object-cover md:h-[450px] md:object-[center_top] brightness-[.75]"
                 style={{ position: "static" }}
               />
             </div>
-          <div className="space-y-6">
+            <div className="space-y-6 mt-4 text-justify">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-              Why Choose Us?
+              About Us
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed">
-              At <span className="text-primary font-semibold">Roshan Vastralaya</span>, we believe clothing should empower you for every occasion. Our collection is a blend of timeless tradition and modern practicality, crafted for comfort, style, and confidence.
+              At <span className="text-primary font-semibold">Roshan Vastralaya</span>, we believe clothing should empower you for every occasion. Our collection blends timeless tradition with everyday practicality, offering elegant sarees, kurtas, lehengas, and sherwanis that reflect cultural heritage while ensuring comfort and ease.
+              {/* Each piece is crafted to bring out your confidence—whether it's for a festive celebration or a special family gathering. */}
+            </p>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Beyond traditional wear, we also focus on functional clothing designed for daily life. From breathable cottons to easy-care fabrics, our outfits are made to move with you—perfect for work, errands, or relaxed weekends. With Roshan Vastralaya, tradition meets modern living in every stitch.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-6">
               <div className="flex items-center gap-3">
@@ -43,6 +47,7 @@ const About = () => {
               </div>
             </div>
           </div>
+        
         </div>
       </section>
 

@@ -89,7 +89,7 @@ export default function GalleryUpload() {
               <div className="row justify-center">
                 <div className="col-lg-4 col-md-6 flex flex-col items-center justify-center">
                   <h3 className="flex justify-center py-4">
-                    <span className="hidden lg:block border-b-2 border-orange-500">
+                    <span className="hidden lg:block border-b-2 border-primary">
                       Galleries Upload
                     </span>
                   </h3>
@@ -114,16 +114,16 @@ export default function GalleryUpload() {
                             name="title"
                             className={`w-full px-4 py-2 border rounded-md ${
                               errors.title
-                                ? "border-orange-500"
+                                ? "border-primary"
                                 : "border-gray-300"
-                            } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                            } focus:outline-none focus:ring-2 focus:ring-primary`}
                             id="title"
                             value={title}
                             onChange={handleTitleChange}
                             required
                           />
                           {errors.title && (
-                            <div className="text-sm text-orange-500">
+                            <div className="text-sm text-primary">
                               {errors.title}
                             </div>
                           )}
@@ -142,9 +142,9 @@ export default function GalleryUpload() {
                             name="images"
                             className={`w-full px-4 py-2 border rounded-md ${
                               errors.images
-                                ? "border-orange-500"
+                                ? "border-primary"
                                 : "border-gray-300"
-                            } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                            } focus:outline-none focus:ring-2 focus:ring-primary`}
                             id="galleries"
                             accept="image/*"
                             multiple
@@ -182,7 +182,7 @@ export default function GalleryUpload() {
                         {/* Submit button */}
                         <div className="w-full">
                           <button
-                            className="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                            className="w-full px-4 py-2 bg-primary text-white rounded-md hover:bg-primaryHover"
                             type="submit"
                           >
                             Upload Images

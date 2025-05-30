@@ -36,14 +36,14 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 mt-2">
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61576359953885" target="_blank"
                 className={socialIconMotion}
                 aria-label="Facebook"
               >
                 <FaFacebook size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/roshan_vastralaya849/" target="_blank"
                 className={socialIconMotion}
                 aria-label="Instagram"
               >

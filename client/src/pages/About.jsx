@@ -10,30 +10,30 @@ const About = () => {
       {/* Hero Section */}
 
       <div className="relative w-full min-h-[320px] md:min-h-[480px] flex items-center justify-center overflow-hidden">
-     
+
         <img
           src={banner}
           alt="About Us Banner"
           className="w-full h-full object-cover md:object-[center_top] object-center absolute inset-0 brightness-[.75]"
 
         />
-      
+
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-black/70 z-10"></div>
- 
+
         <div className="relative z-20 max-w-7xl mx-auto flex flex-col items-center justify-center px-4 md:px-8 text-center py-16 md:py-24">
           <h1 className=" text-2xl sm:text-3xl md:text-5xl font-bold mb-6  text-white drop-shadow-lg animate-fade-in font-  ">
             About Us
           </h1>
           <p className="text-base md:text-xl max-w-3xl mx-auto leading-relaxed text-gray-100 font-medium mb-6 animate-fade-in-slow font ">
             Welcome to Roshan Vastralaya, where tradition meets modern functionality.
-            
+
           </p>
         </div>
       </div>
       {/* Introduction Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center px-6">
-          <div className="relative flex items-center justify-center w-full h-64 md:h-[370px]">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-cente px-6">
+          <div className="relative flex items-center justify-center w-full h-64 md:h-[450px]">
             <img
               src={aboutimg}
               alt="Our Craft"
@@ -41,12 +41,16 @@ const About = () => {
 
             />
           </div>
-          <div className="space-y-6">
+          <div className="space-y-6 mt-4 text-justify">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-              Why Choose Us?
+              About Us
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed">
-              At <span className="text-primary font-semibold">Roshan Vastralaya</span>, we believe clothing should empower you for every occasion. Our collection is a blend of timeless tradition and modern practicality, crafted for comfort, style, and confidence.
+              At <span className="text-primary font-semibold">Roshan Vastralaya</span>, we believe clothing should empower you for every occasion. Our collection blends timeless tradition with everyday practicality, offering elegant sarees, kurtas, lehengas, and sherwanis that reflect cultural heritage while ensuring comfort and ease.
+              {/* Each piece is crafted to bring out your confidence—whether it's for a festive celebration or a special family gathering. */}
+            </p>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Beyond traditional wear, we also focus on functional clothing designed for daily life. From breathable cottons to easy-care fabrics, our outfits are made to move with you—perfect for work, errands, or relaxed weekends. With Roshan Vastralaya, tradition meets modern living in every stitch.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-6">
               <div className="flex items-center gap-3">

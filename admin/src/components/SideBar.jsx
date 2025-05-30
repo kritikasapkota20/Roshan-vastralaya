@@ -11,7 +11,7 @@ const SideBar = () => {
     return location.pathname === path;
   };
   return (
-    <aside className="w-72 bg-primary text-white flex flex-col sticky top-0 h-fit shadow-2xl">
+    <aside className="w-72 bg-primary text-white flex flex-col sticky top-0 h- shadow-2xl">
       <div className="p-6 border-b border-[#0099CC] flex items-center justify-center ">
         {/* <Link to="/" className="cursor-pointer transform hover:scale-105 transition-transform duration-200">
           <img src={logo} alt="logo" className="w-40 h-36 object-contain" />

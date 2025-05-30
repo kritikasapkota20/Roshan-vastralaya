@@ -290,7 +290,6 @@ const AddProduct = ({ edit, upload }) => {
       setLoading(false);
     }
   };
-
   return (
     <div className={`min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 ${submitting && "opacity-60 cursor-not-allowed"}`}>
       <div className="max-w-3xl mx-auto">
@@ -453,6 +452,9 @@ const AddProduct = ({ edit, upload }) => {
               </div>
             )}
 
+          
+            {/* Catalog Upload Section */}
+            {/* 
             {!edit && (
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700" htmlFor="catalogFile">
@@ -504,13 +506,15 @@ const AddProduct = ({ edit, upload }) => {
                 )}
               </div>
             )}
+            */}
+
 
             {!upload && (
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700" htmlFor="description">
                   Description*
                 </label>
-                <div className="border border-gray-300 rounded-lg overflow-hidden">
+                <div className="border border-gray-300 rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-200">
                   <CKEditor
                     editor={ClassicEditor}
                     required

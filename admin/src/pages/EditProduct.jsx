@@ -35,7 +35,7 @@ const EditProduct = () => {
             name: product.name,
             description: product.desc,
             // price: product.price,
-            category: product.category ,
+            category: product.category._id ,
             brand: product.brand,
           });
           setImagePreview(`${import.meta.env.VITE_SERVERAPI}/${product.image.replace(/\\/g, "/")}`);

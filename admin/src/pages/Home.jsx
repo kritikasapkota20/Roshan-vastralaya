@@ -162,7 +162,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-
+{/* 
           <div className="bg-gradient-to-br from-purple-500 to-purple-600 overflow-hidden shadow-xl rounded-2xl transform hover:scale-105 transition-all duration-300">
             <div className="p-6">
               <div className="flex items-center">
@@ -179,7 +179,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Products Section */}

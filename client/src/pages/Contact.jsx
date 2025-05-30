@@ -71,7 +71,7 @@ const Contact = () => {
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Follow Us</h3>
                 <div className="flex gap-4">
-                  <a href="https://www.facebook.com/profile.php?id=61575754582731" target="_blank" rel="noopener noreferrer"
+                  <a href="https://www.facebook.com/profile.php?id=61576359953885" target="_blank" rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full flex items-center justify-center bg-blue-100 text-primary hover:bg-blue-200 transition text-xl shadow">
                     <FaFacebook />
                   </a>
@@ -79,7 +79,7 @@ const Contact = () => {
                     className="w-10 h-10 rounded-full flex items-center justify-center bg-blue-100 text-primary hover:bg-blue-200 transition text-xl shadow">
                     <FaTwitter />
                   </a>
-                  <a href="https://www.instagram.com/electron_house77/" target="_blank" rel="noopener noreferrer"
+                  <a href="https://www.instagram.com/roshan_vastralaya849/" target="_blank" rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full flex items-center justify-center bg-pink-100 text-primary hover:bg-pink-200 transition text-xl shadow">
                     <FaInstagram />
                   </a>

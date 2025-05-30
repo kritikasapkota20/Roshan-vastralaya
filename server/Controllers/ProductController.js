@@ -229,6 +229,7 @@ const editProduct = async (req, res) => {
 
     console.log("=== Update Data ===");
     console.log(updateData);
+    console.log("Image path before update:", imagePath);
 
     // Use findByIdAndUpdate with options
     const updatedProduct = await Product.findByIdAndUpdate(

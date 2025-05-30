@@ -27,7 +27,7 @@ const fileFilter = (req, file, cb) => {
     file.fieldname === "gallery" ||
     file.fieldname === "event"
   ) {
-    const allowedTypes = ["image/png", "image/jpg", "image/jpeg", "image/avif"];
+    const allowedTypes = ["image/png", "image/jpg", "image/jpeg", "image/avif","image/heic","image/heif",  "application/octet-stream"];
     if (allowedTypes.includes(file.mimetype)) {
       cb(null, true);
     } else {

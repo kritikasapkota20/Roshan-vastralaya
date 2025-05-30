@@ -175,11 +175,11 @@ const Product = () => {
                  {currentProducts.map((product) => (
   <div
     key={product._id}
-    className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col"
+    className="bg-white rounded-xl w-[260px] overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col"
   >
     {/* <Link to={`/product/${product._id}`} className="block group relative flex-1 flex flex-col"> */}
       {/* Image Section */}
-      <div className="relative aspect-square overflow-hidden bg-[#EBECEF] flex-shrink-0 h-[200px] w-full">
+      <div className="relative aspect-square overflow-hidden bg-[#EBECEF] flex-shrink-0 h-[200px] ">
         <img
           src={`${import.meta.env.VITE_SERVER}/${product.image.replace(/\\/g, "/")}`}
           alt={product.name}
@@ -187,7 +187,6 @@ const Product = () => {
         />
       </div>
     {/* </Link> */}
-
 
       {/* Product Details */}
       <div className="p-4 flex flex-col flex-1">

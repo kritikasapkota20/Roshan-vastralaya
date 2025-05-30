@@ -189,7 +189,7 @@ const Gallery = () => {
                     <img
                       src={photo.src}
                       alt={photo.title}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
                       onClick={() => {
                         setOpen(true);
                         setCurrentIndex(index);
