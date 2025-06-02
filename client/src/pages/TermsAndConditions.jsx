@@ -4,9 +4,9 @@ const TermsAndConditions = () => {
     return (
         <div className="container mx-auto px-4 py-12 max-w-4xl">
             <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Terms and Conditions</h1>
-            <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className="bg-white rounded-lg shadow-lg px-8 pt-5">
                 <p className="text-gray-600 mb-6">
-                    Welcome to our fashion store. These Terms & Conditions govern your use of our website and services.
+                    Welcome to our Roshan Vastralaya. These Terms & Conditions govern your use of our website and services.
                 </p>
 
                 <div className="space-y-6">
@@ -32,8 +32,8 @@ const TermsAndConditions = () => {
                         <h2 className="text-2xl font-semibold mb-4 text-gray-800">2. Shipping & Returns</h2>
                         <ul className="list-none space-y-2">
                             <li className="flex items-start">
-                                <span className="text-blue-600 mr-2">🔹</span>
-                                <span className="text-gray-600">Free shipping on orders over $50.</span>
+                                {/* <span className="text-blue-600 mr-2">🔹</span> */}
+                                {/* <span className="text-gray-600">Free shipping on orders over $50.</span> */}
                             </li>
                             <li className="flex items-start">
                                 <span className="text-blue-600 mr-2">🔹</span>
@@ -76,14 +76,14 @@ const TermsAndConditions = () => {
 
                     <section>
                         <h2 className="text-2xl font-semibold mb-4 text-gray-800">5. Contact Us</h2>
-                        <div className="space-y-2">
+                        <div className="space-y-2 pb-5">
                             <p className="flex items-center text-gray-600">
                                 <span className="text-blue-600 mr-2">📧</span>
-                                <span>Email: support@fashionstore.com</span>
+                                <span>Email: info@roshanvastralaya.com</span>
                             </p>
                             <p className="flex items-center text-gray-600">
                                 <span className="text-blue-600 mr-2">📞</span>
-                                <span>Customer Service: 1-800-FASHION</span>
+                                <span>Customer Service: 01-36587239</span>
                             </p>
                         </div>
                     </section>

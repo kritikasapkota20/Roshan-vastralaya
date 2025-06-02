@@ -107,8 +107,8 @@ const Banner = () => {
                   </p>
                   <Link
                     to="/product"
-                    className="inline-flex items-center gap-2 bg-white text-[#00719B] font-semibold px-6 py-3 md:px-8 md:py-4
-                    hover:bg-[#00719B] hover:text-white border-2 border-white/30 rounded-full transition-all duration-300 font-serif
+                    className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-3 md:px-8 md:py-4
+                    hover:bg-primary hover:text-white border-2 border-white/30 rounded-full transition-all duration-300 font-serif
                     shadow-md hover:shadow-lg group"
                   >
                     <span>View our Collections</span>

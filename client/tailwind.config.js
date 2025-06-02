@@ -5,7 +5,10 @@ content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     extend: {
       colors: {
         "primary": "#00719B",
-        "primaryHover":"#1e6680",
+        "primary": "#A5383A",
+
+        // "primaryHover":"#1e6680",
+        "primaryHover":"#8E2E31",
         "sec-gray": "#F8F9FA",
         "sec-dark-gray": "#343A40",
         "accent": "#E74C3C",

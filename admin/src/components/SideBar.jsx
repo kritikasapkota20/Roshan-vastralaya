@@ -12,7 +12,7 @@ const SideBar = () => {
   };
   return (
     <aside className="w-72 bg-primary text-white flex flex-col sticky top-0 h- shadow-2xl">
-      <div className="p-6 border-b border-[#0099CC] flex items-center justify-center ">
+      <div className="p-6 border-b border-[#B84E4F] flex items-center justify-center ">
         {/* <Link to="/" className="cursor-pointer transform hover:scale-105 transition-transform duration-200">
           <img src={logo} alt="logo" className="w-40 h-36 object-contain" />
         </Link> */}
@@ -25,7 +25,7 @@ const SideBar = () => {
             to="/"
             className={`flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-300 ${isActive("/")
               ? "bg-[white] text-primary shadow-lg shadow-blue-500/20"
-              : "text-white hover:bg-[#0099CC] hover:text-white hover:translate-x-1"
+              : "text-white hover:bg-[#B84E4F] hover:text-white hover:translate-x-1"
               }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -38,7 +38,7 @@ const SideBar = () => {
             to="/addproducts"
             className={`flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-300 ${isActive("/addproducts")
               ? "bg-[white] text-primary shadow-lg shadow-blue-500/20"
-              : "text-white hover:bg-[#0099CC] hover:text-white hover:translate-x-1"
+              : "text-white hover:bg-[#B84E4F] hover:text-white hover:translate-x-1"
               }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -51,7 +51,7 @@ const SideBar = () => {
             to="/getcategory"
             className={`flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-300 ${isActive("/getcategory")
               ? "bg-[white] text-primary shadow-lg shadow-blue-500/20"
-              : "text-white hover:bg-[#0099CC] hover:text-white hover:translate-x-1"
+              : "text-white hover:bg-[#B84E4F] hover:text-white hover:translate-x-1"
               }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -64,7 +64,7 @@ const SideBar = () => {
             to="/gallery"
             className={`flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-300 ${isActive("/gallery")
               ? "bg-[white] text-primary shadow-lg shadow-blue-500/20"
-              : "text-white hover:bg-[#0099CC] hover:text-white hover:translate-x-1"
+              : "text-white hover:bg-[#B84E4F] hover:text-white hover:translate-x-1"
               }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -73,18 +73,18 @@ const SideBar = () => {
             <span className="font-medium">Gallery</span>
           </Link>
 
-          <div className="mt-auto pt-6 border-t border-[#0099CC]">
+          <div className="mt-auto pt-6 border-t border-primaryHover">
             {/* <div className="px-4 py-3 rounded-xl bg-gradient-to-r from-red-500 to-pink-500 backdrop-blur-sm text-white mb-3">
               <div className="text-sm font-semibold">{loggedInUser.fullname}</div>
               <div className="text-xs text-[#f1c1c1]">Administrator</div>
             </div> */}
 
-           <Link
+     <Link
   to="/logout"
   className={`flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-300 ${
     isActive("/logout")
-      ? "bg-gradient-to-r from-[#00719B] to-[#0099CC] text-white shadow-lg shadow-[#00719B]/30"
-      : "bg-gradient-to-r from-[#00719B]/90 to-[#0099CC]/90 hover:from-[#00719B] hover:to-[#0099CC] text-white hover:shadow-lg hover:shadow-[#00719B]/30 transform hover:scale-[1.02]"
+      ? "bg-gradient-to-r from-[#A5383A] to-[#C84748] text-white shadow-lg shadow-[#A5383A]/30"
+      : "bg-gradient-to-r from-[#A5383A]/90 to-[#C84748]/90 hover:from-[#8E2E31] hover:to-[#B73C3C] text-white hover:shadow-lg hover:shadow-[#A5383A]/30 transform hover:scale-[1.02]"
   }`}
 >
              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

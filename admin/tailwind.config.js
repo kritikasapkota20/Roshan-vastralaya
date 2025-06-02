@@ -5,8 +5,10 @@ export default {
     extend: {
       colors: {
         // "primary" : "#ef6a6a",
-        "primary" : "#00719B",
-        "primaryHover":"#1e6680",
+        // "primary" : "#00719B",
+        "primary":"#A5383A",
+        // "primaryHover":"#1e6680",
+        "primaryHover":"#8E2E31",
         "sec-gray" : "#F5F5F5",
         "sec-dark-gray" : "#333",
         "dark-orange" : "#A84300",
